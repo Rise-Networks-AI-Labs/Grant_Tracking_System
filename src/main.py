@@ -21,8 +21,9 @@ os.makedirs(OUTPUTS_DIR, exist_ok=True)
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Loading the file
-filepath = r"C:\Users\Rise Networks\Documents\Feranmi's work\grant_tracker\data\grant_data.csv"
-df = pd.read_csv(filepath)
+file_url = r"https://raw.githubusercontent.com/Rise-Networks-AI-Labs/Grant_Tracking_System/refs/heads/main/data/grant_data.csv"
+df = pd.read_csv(file_url)
+
 
 grant_content_list = []
 def generate_email_content(df):
