@@ -40,8 +40,9 @@ def send_email():
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
 
+        app_password = os.getenv("GOOGLE_APP_PASSWORD")
         # login to the email account
-        server.login(user=sender_email, password=os.getenv("GOOGLE_APP_PASSWORD"))
+        server.login(user=sender_email, password=app_password)
 
         # send the email
         server.sendmail(sender_email, receiver_email, msg.as_string())
