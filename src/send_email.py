@@ -19,10 +19,10 @@ def send_email():
             newsletter_content = f.read()
 
         # create sender's email address
-        sender_email = "labs@risenetworks.org" #labs@risenetworks.org
+        sender_email = os.getenv("SENDER_EMAIL")
 
         # create receiver's email address
-        receiver_email = ["developer@risenetworks.org"]
+        receiver_email = os.getenv("RECEIVER_EMAIL")
 
         # create the subject for the message
         subject = "Grant Application Reminder"
@@ -30,11 +30,11 @@ def send_email():
         # Create Email Message
         msg = MIMEMultipart()
         msg["From"] = sender_email
-        msg["To"] = ", ".join(receiver_email)  # Multiple recipients
+        msg["To"] = ", ".join(receiver_email)
         msg["Subject"] = subject
 
         # Attach the Email Body
-        msg.attach(MIMEText(newsletter_content, "plain", "utf-8"))  # Set encoding to utf-8
+        msg.attach(MIMEText(newsletter_content, "plain", "utf-8"))  
 
         # create the SMTP server
         server = smtplib.SMTP("smtp.gmail.com", 587)
