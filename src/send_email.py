@@ -8,6 +8,13 @@ from email.mime.multipart import MIMEMultipart
 load_dotenv()
 
 def send_email():
+    sender_email = os.getenv("SENDER_EMAIL")
+    receiver_email = os.getenv("RECEIVER_EMAIL")
+    app_password = os.getenv("GOOGLE_APP_PASSWORD")
+
+    print("Sender:", bool(sender_email))
+    print("Receiver:", bool(receiver_email))
+    print("App Password:", bool(app_password))
     # Get the parent directory of the current script
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -17,7 +24,7 @@ def send_email():
     if os.path.exists(OUTPUT_DIR):
         with open(OUTPUT_DIR, "r", encoding="utf-8") as f:
             newsletter_content = f.read()
-
+            
         # create sender's email address
         sender_email = os.getenv("SENDER_EMAIL")
 
