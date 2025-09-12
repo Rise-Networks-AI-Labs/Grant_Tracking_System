@@ -22,7 +22,7 @@ def send_email():
         sender_email = os.getenv("SENDER_EMAIL")
 
         # create receiver's email address
-        receiver_email = os.getenv("RECEIVER_EMAIL").split(",")
+        receiver_email = ["developer@risenetworks.org", "labs@risenetworks.org"]
 
         # create the subject for the message
         subject = "Grant Application Reminder"
