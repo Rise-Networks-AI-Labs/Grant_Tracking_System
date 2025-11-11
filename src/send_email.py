@@ -32,11 +32,11 @@ def send_email():
         receiver_email = os.getenv("RECEIVER_EMAIL").split(",")
 
         # create the subject for the message
-        subject = "Grant Application Reminder"
+        subject = "Reminder: GRANTS & FELLOWSHIPS APPLICATIONS"
 
         # Create Email Message
         msg = MIMEMultipart()
-        msg["From"] = sender_email
+        msg["From"] = "Grants For RISE"
         msg["To"] = ", ".join(receiver_email)
         msg["Subject"] = subject
 
